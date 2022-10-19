@@ -1,0 +1,110 @@
+const countries = ["Finland", "Sweden", "Denmark", "Norway", "IceLand"];
+const names = ["Asabeneh", "Mathias", "Elias", "Brook"];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const products = [
+  { product: "banana", price: 3 },
+  { product: "mango", price: 6 },
+  { product: "potato", price: " " },
+  { product: "avocado", price: 8 },
+  { product: "coffee", price: 10 },
+  { product: "tea", price: "" },
+];
+
+let newCountries = countries.forEach((nam) => console.log`${nam}`);
+console.log(newCountries);
+let newName = names.forEach((na) => console.log`${na}`);
+let newNumbers = numbers.forEach((no) => console.log`${no}`);
+
+let capCountry = countries.map((coun) => coun.toUpperCase());
+console.log(capCountry);
+let countryLength = countries.map((cou) => cou.length);
+console.log(countryLength);
+let squareNumber = numbers.map((no) => console.log`${no * no}`);
+let capNames = names.map((nam) => {
+  return console.log`${nam.toUpperCase()}`;
+});
+let newProduct = products.map((pro) => {
+  return console.log`${pro.product}:${pro.price}`;
+});
+
+let containLand = countries.filter((la) => {
+  return la.includes("land");
+});
+console.log(containLand);
+
+let sixLetterCountries = countries.filter((six) => six.length === 6);
+console.log(sixLetterCountries);
+
+let sixLetterAndMore = countries.filter((mo) => mo.length >= 6);
+console.log(sixLetterAndMore);
+
+let startWithE = countries.filter((count) => count.charAt(0) === "E");
+console.log(startWithE);
+
+let noEmptyString = products.filter((str) => {
+  console.log(str.price);
+  if (str.price != false) {
+    return str.price;
+  }
+});
+console.log(noEmptyString);
+
+let newArray = [];
+let otherArray = [];
+function getStringLists(arr) {
+  for (let val of arr) {
+    // if (typeof arr[i] === 'string'){
+    //     newArray.push(arr[i])
+    // } else {otherArray.push(arr[i])}
+
+    typeof val === "string" ? newArray.push(val) : otherArray.push(val);
+  }
+  return newArray;
+}
+getStringLists(["wert", 6, 7, "ytr", "Drake", 5]);
+console.log(newArray);
+console.log(otherArray);
+
+let totalNumbers = numbers.reduce((a, b) => {
+  return a + b;
+});
+
+console.log(totalNumbers);
+
+// let reduceCountries = countries.reduce((x,y)=>{
+
+//     return
+// })
+
+// console.log(reduceCountries)
+
+// Explain the difference between some and every
+// some() method in JavaScript is used to check whether at least one of the elements of the array satisfies the given condition or not. The only difference is that the some() method will return true if any predicate is true while every() method will return true if all predicates are true.
+let someCountriesLength = countries.some((x) => x.length > 7);
+console.log(someCountriesLength);
+
+let everyLand = countries.every((words) => words.includes("land"));
+console.log(everyLand);
+
+//Explain the difference between find and findIndex.
+let findCountry = countries.find((a) => a.length === 6);
+console.log(findCountry);
+
+let findIndexCountry = countries.findIndex((a) => a.length === 6);
+console.log(findIndexCountry);
+
+let findNorway = countries.findIndex((a) => a === "Norway");
+console.log(findNorway);
+
+//How the hell is this code correct??????
+
+let findRussia = countries.findIndex((a) => a === "Russia");
+console.log(findRussia);
+
+// Exercises: Level 2
+let newSum = products.map((x) => Number(x.price)).reduce((a, b) => b + a);
+console.log(newSum);
+
+//2
+let sumTotal = products.reduce((a, b) => a + Number(b.price), 0);
+console.log(sumTotal);
